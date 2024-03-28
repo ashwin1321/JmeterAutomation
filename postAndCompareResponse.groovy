@@ -41,6 +41,8 @@ def response = client.execute(post)
 def responseCode = response.getStatusLine().getStatusCode()
 // verify response code
 log.info("POST request response code: ${responseCode}")
+vars.put('ResponseCode', responseCode as String)
+SampleResult.setResponseCode("201")
 
 // getting the responseContent 
 def responseContent = new JsonSlurper().parse(response.getEntity().getContent())
@@ -77,6 +79,10 @@ responseContent.remove("id")
     log.error("Something went wrong, response code: ${responseCode}")
 }
 
+vars.put('Is response from post request and posted content same:', isValidResponse.toString())
+
+def isPostAndSentDataSame = isValidResponse.toString()
+SampleResult.setResponseMessage(isPostAndSentDataSame)
 if (isValidResponse) {
     log.info("Response content matches the posted content......")
 } else {
