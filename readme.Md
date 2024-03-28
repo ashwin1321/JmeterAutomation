@@ -14,13 +14,12 @@
 
 - Here, we are using httpClient to interact with the api and get the response, and other analysis is done as required.
 
-### Open Apache Jmeter
+## Open Apache Jmeter
 
 
 
-### Running the application
+## Running the application
 
-Running the Application
 1. Get Response Script
 -  go to files > open 
 - open the TestPlanGetResponse.jmx file
