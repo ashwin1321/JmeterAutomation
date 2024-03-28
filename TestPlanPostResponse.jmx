@@ -106,6 +106,8 @@ responseContent.remove(&quot;id&quot;)
 }
 
 vars.put(&apos;Is response from post request and posted content same:&apos;, isValidResponse.toString())
+vars.put(&apos;response from post:&apos;, responseContent.toString())
+vars.put(&apos;tweaked content before post:&apos;, respionseJson.toString())
 
 def isPostAndSentDataSame = isValidResponse.toString()
 SampleResult.setResponseMessage(isPostAndSentDataSame)
@@ -119,7 +121,7 @@ if (isValidResponse) {
           <stringProp name="scriptLanguage">groovy</stringProp>
         </JSR223Sampler>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49587">201</stringProp>
             </collectionProp>

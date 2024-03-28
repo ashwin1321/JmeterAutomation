@@ -80,6 +80,8 @@ responseContent.remove("id")
 }
 
 vars.put('Is response from post request and posted content same:', isValidResponse.toString())
+vars.put('response from post:', responseContent.toString())
+vars.put('tweaked content before post:', respionseJson.toString())
 
 def isPostAndSentDataSame = isValidResponse.toString()
 SampleResult.setResponseMessage(isPostAndSentDataSame)
