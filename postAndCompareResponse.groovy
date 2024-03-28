@@ -4,8 +4,13 @@ import org.apache.http.client.methods.HttpPost
 import org.apache.http.entity.StringEntity
 import org.apache.http.impl.client.HttpClients
 
+// Get the current directory where the script is located
+def currentDir = new File('.').getCanonicalPath()
+
+
 // read from saved json file
-def responsePath = 'C:/Users/ashwi/Documents/GET_Response.json'   // please adjust as required
+def responsePath = currentDir + '/GET_Response.json'  // please adjust as required
+log.info("getting response from path: ${responsePath}")
 def getResponse = new File(responsePath).text
 
 // parse to json
@@ -19,9 +24,10 @@ respionseJson.each { item ->
 }
 
 // save the file 
-def saveResponsePath = 'C:/Users/ashwi/Documents/POST_Request.json'   // adjust according to your need
+def saveResponsePath = currentDir + '/POST_Request.json'   // adjust according to your need
 def responseToSave = JsonOutput.toJson(respionseJson)
 new File(saveResponsePath).write(responseToSave)
+log.info("File has been written in path.." + saveResponsePath )
 
 
 // now sending the post request with tweaked json value above
